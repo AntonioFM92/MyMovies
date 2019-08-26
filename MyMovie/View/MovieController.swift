@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MovieController.swift
 //  MyMovie
 //
 //  Created by Antonio Fernández Martín on 26/08/2019.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MovieController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
 }
-
