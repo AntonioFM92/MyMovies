@@ -15,6 +15,10 @@
 		901DCF052314801E004B645D /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCF042314801E004B645D /* MovieController.swift */; };
 		901DCF0723148073004B645D /* MovieDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCF0623148073004B645D /* MovieDetailController.swift */; };
 		901DCF09231480BE004B645D /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCF08231480BD004B645D /* ApiManager.swift */; };
+		901DCF0B23148A55004B645D /* MovieDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCF0A23148A55004B645D /* MovieDto.swift */; };
+		901DCF0D23148A62004B645D /* MovieDetailDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCF0C23148A62004B645D /* MovieDetailDto.swift */; };
+		901DCF0F23148AB7004B645D /* RatingDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCF0E23148AB7004B645D /* RatingDto.swift */; };
+		901DCF1123148B46004B645D /* SearchDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCF1023148B46004B645D /* SearchDto.swift */; };
 		C7417BB998531A555A614C7F /* Pods_MyMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5144839CA8BDF52727D8251 /* Pods_MyMovie.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +33,10 @@
 		901DCF042314801E004B645D /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
 		901DCF0623148073004B645D /* MovieDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailController.swift; sourceTree = "<group>"; };
 		901DCF08231480BD004B645D /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		901DCF0A23148A55004B645D /* MovieDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDto.swift; sourceTree = "<group>"; };
+		901DCF0C23148A62004B645D /* MovieDetailDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailDto.swift; sourceTree = "<group>"; };
+		901DCF0E23148AB7004B645D /* RatingDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDto.swift; sourceTree = "<group>"; };
+		901DCF1023148B46004B645D /* SearchDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDto.swift; sourceTree = "<group>"; };
 		B9E073D9E39F4E044F9BED8F /* Pods-MyMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovie/Pods-MyMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		C57F70A42247BF6EB09B4667 /* Pods-MyMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovie/Pods-MyMovie.release.xcconfig"; sourceTree = "<group>"; };
 		F5144839CA8BDF52727D8251 /* Pods_MyMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +132,10 @@
 		901DCF0323147FEC004B645D /* Dto */ = {
 			isa = PBXGroup;
 			children = (
+				901DCF0A23148A55004B645D /* MovieDto.swift */,
+				901DCF1023148B46004B645D /* SearchDto.swift */,
+				901DCF0C23148A62004B645D /* MovieDetailDto.swift */,
+				901DCF0E23148AB7004B645D /* RatingDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -253,9 +265,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				901DCF052314801E004B645D /* MovieController.swift in Sources */,
+				901DCF0F23148AB7004B645D /* RatingDto.swift in Sources */,
 				901DCF0723148073004B645D /* MovieDetailController.swift in Sources */,
 				901DCF09231480BE004B645D /* ApiManager.swift in Sources */,
+				901DCF0B23148A55004B645D /* MovieDto.swift in Sources */,
 				901DCEEC2314783C004B645D /* AppDelegate.swift in Sources */,
+				901DCF0D23148A62004B645D /* MovieDetailDto.swift in Sources */,
+				901DCF1123148B46004B645D /* SearchDto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
