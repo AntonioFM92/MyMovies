@@ -12,7 +12,7 @@
         <!--Movie Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MovieController" customModule="MyMovie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="movieController" id="BYZ-38-t0r" customClass="MovieController" customModule="MyMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2q1-FZ-OZl"/>
                         <viewControllerLayoutGuide type="bottom" id="pRa-VY-QsC"/>
@@ -22,14 +22,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QWb-KJ-ktJ">
-                                <rect key="frame" x="0.0" y="70" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="luK-ux-WkH"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2d1-aD-XfB">
-                                <rect key="frame" x="0.0" y="114" width="320" height="366"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="372"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="130" id="3KH-8f-USb">
@@ -96,6 +96,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="h4K-i8-K0k"/>
                     <connections>
+                        <outlet property="movieImage" destination="h7K-vy-VJv" id="Bev-Es-tcI"/>
+                        <outlet property="movieTableView" destination="2d1-aD-XfB" id="msD-73-o68"/>
+                        <outlet property="movieTitle" destination="3Q0-OE-Vtx" id="ZEw-MM-KED"/>
+                        <outlet property="movieYear" destination="c4s-CK-pHe" id="cgS-YP-YbD"/>
+                        <outlet property="searchBar" destination="QWb-KJ-ktJ" id="tqc-M2-xUr"/>
                         <segue destination="h7q-U9-Be9" kind="showDetail" id="uTN-nH-WMb"/>
                     </connections>
                 </viewController>
@@ -103,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="713" y="138"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie Detail Controller-->
         <scene sceneID="NuU-PO-kX8">
             <objects>
-                <viewController id="h7q-U9-Be9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="movieDetailController" id="h7q-U9-Be9" customClass="MovieDetailController" customModule="MyMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8S9-Ab-9wE"/>
                         <viewControllerLayoutGuide type="bottom" id="zRx-jx-XYq"/>
@@ -241,6 +246,15 @@
                             <constraint firstAttribute="trailing" secondItem="YZY-a9-mi6" secondAttribute="trailing" id="vir-Jy-VUv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="movieDate" destination="2qv-Ap-CVo" id="iRj-57-KBg"/>
+                        <outlet property="movieDuration" destination="iqL-lI-yIR" id="0xq-aw-H3G"/>
+                        <outlet property="movieGenre" destination="HXJ-Qv-c0K" id="AgH-AL-Nch"/>
+                        <outlet property="movieImage" destination="MTW-i1-na1" id="v20-0K-Efn"/>
+                        <outlet property="moviePlot" destination="NAk-Tb-8SA" id="eVE-Sf-7rT"/>
+                        <outlet property="movieTitle" destination="V3B-24-xkL" id="KCh-7U-weW"/>
+                        <outlet property="movieWebSite" destination="T4Z-Ti-Ef0" id="NKL-1Y-QWA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SO1-bn-AN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
