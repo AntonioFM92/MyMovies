@@ -13,10 +13,6 @@ class MovieController: UIViewController {
     //MARK: - Outlets
     @IBOutlet var searchBar: UISearchBar!
     
-    @IBOutlet var movieImage: UIImageView!
-    @IBOutlet var movieTitle: UILabel!
-    @IBOutlet var movieYear: UILabel!
-    
     @IBOutlet var movieTableView: UITableView!
     
     override func viewDidLoad() {

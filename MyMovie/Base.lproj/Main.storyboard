@@ -96,10 +96,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="h4K-i8-K0k"/>
                     <connections>
-                        <outlet property="movieImage" destination="h7K-vy-VJv" id="Bev-Es-tcI"/>
                         <outlet property="movieTableView" destination="2d1-aD-XfB" id="msD-73-o68"/>
-                        <outlet property="movieTitle" destination="3Q0-OE-Vtx" id="ZEw-MM-KED"/>
-                        <outlet property="movieYear" destination="c4s-CK-pHe" id="cgS-YP-YbD"/>
                         <outlet property="searchBar" destination="QWb-KJ-ktJ" id="tqc-M2-xUr"/>
                         <segue destination="h7q-U9-Be9" kind="showDetail" id="uTN-nH-WMb"/>
                     </connections>
