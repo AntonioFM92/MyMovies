@@ -22,6 +22,7 @@ class Utilities {
         return ["i":movieID, "apikey": apiKey]
     }
     
+    //Load movieImage or image by default
     static func checkImageUrl(imageURL: String) -> String {
         let urlString = imageURL != "" ? imageURL : "https://via.placeholder.com/150"
         return urlString
@@ -41,4 +42,37 @@ extension UIImageView {
             }
         }
     }
+}
+
+extension UITextView {
+    
+    //ParentView of UITextView
+    var parentViewController: UIViewController? {
+        var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder!.next
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
+    }
+    
+    func setAsLink(value: String) {
+        let attributedString = NSMutableAttributedString(string: value, attributes:[NSAttributedString.Key.link: URL(string: value)!])
+        self.attributedText = attributedString
+    }
+    
+    func setTappable(value: String) {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapped(_:)))
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tapped(_ sender: UITapGestureRecognizer? = nil) {
+        let urlToOpen = URL(string: self.text)!
+        
+        let activityViewController = UIActivityViewController(activityItems: [urlToOpen], applicationActivities: nil)
+        self.parentViewController!.present(activityViewController, animated: true)
+    }
+    
 }

@@ -25,7 +25,7 @@ class MovieDetailController: UIViewController {
     @IBOutlet var movieDate: UILabel!
     @IBOutlet var movieDuration: UILabel!
     @IBOutlet var movieGenre: UILabel!
-    @IBOutlet var movieWebSite: UILabel!
+    @IBOutlet var movieWebSite: UITextView!
     @IBOutlet var moviePlot: UITextView!
     
     
@@ -40,7 +40,6 @@ class MovieDetailController: UIViewController {
         presenter?.getMovieDetail(parameters: Utilities.getParametersSearchMovieDetail(movieID: imdbID), body: [:])
         
     }
-
 }
 
 extension MovieDetailController: MovieDetailControllerDelegate {
@@ -50,7 +49,10 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         self.movieDate.text = movieDate
         self.movieDuration.text = movieDuration
         self.movieGenre.text = movieGenre
-        self.movieWebSite.text = movieWebsite
+        
+        self.movieWebSite.setAsLink(value: movieWebsite)
+        self.movieWebSite.setTappable(value: movieWebsite)
+        
         self.moviePlot.text = moviePlot
         
         self.movieImage.load(url: URL(string:Utilities.checkImageUrl(imageURL: movieImage))!)
