@@ -11,6 +11,17 @@ import UIKit
 
 class Utilities {
     
+    static var urlBase = "http://www.omdbapi.com/"
+    static var apiKey = "d2588d29"
+    
+    static func getParametersSearchMovie(movieTitle: String) -> [String:String]{
+        return ["s":movieTitle, "apikey": apiKey]
+    }
+    
+    static func getParametersSearchMovieDetail(movieID: String) -> [String:String]{
+        return ["i":movieID, "apikey": apiKey]
+    }
+    
     static func checkImageUrl(imageURL: String) -> String {
         let urlString = imageURL != "" ? imageURL : "https://via.placeholder.com/150"
         return urlString
