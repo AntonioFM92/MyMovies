@@ -56,6 +56,7 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         self.moviePlot.text = moviePlot
         
         self.movieImage.load(url: URL(string:Utilities.checkImageUrl(imageURL: movieImage))!)
+        self.movieImage.setSaveGesture()
     }
     
     func successSearch(movieDetail: MovieDetailDto?) {

@@ -54,5 +54,7 @@
             </dict>
         </dict>
     </dict>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Message requesting the ability to add to the photo library</string>
 </dict>
 </plist>
