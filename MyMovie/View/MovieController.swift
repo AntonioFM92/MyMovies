@@ -20,5 +20,25 @@ class MovieController: UIViewController {
         
     }
     
+}
+
+//MARK: - TableViewDelegate
+extension MovieController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let movieCell: MovieCell = movieTableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieCell
+        
+        movieCell.setCellValues(movieImage: "", movieTitle: "", movieYear: "")
+        
+        return movieCell
+    }
+    
     
 }
