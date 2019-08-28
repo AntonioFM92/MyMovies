@@ -30,6 +30,7 @@ class Utilities {
     
 }
 
+
 extension UIImageView {
     
     func load(url: URL) {
@@ -63,7 +64,7 @@ extension UIImageView {
     
     @objc func longPressed(_ sender: UILongPressGestureRecognizer? = nil) {
         
-        let alert = UIAlertController(title: "¿Deseas guardar la imagen?", message: "Se guardará automaticamente en el carrete.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "¿Desea guardar la imagen?", message: "Se guardará automáticamente en el carrete.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Si", style: .default, handler: {
             action in UIImageWriteToSavedPhotosAlbum(self.image!, nil, nil, nil)
         }))
@@ -74,6 +75,7 @@ extension UIImageView {
     }
     
 }
+
 
 extension UITextView {
     
@@ -90,7 +92,7 @@ extension UITextView {
     }
     
     func setAsLink(value: String) {
-        let attributedString = NSMutableAttributedString(string: value, attributes:[NSAttributedString.Key.link: URL(string: value)!])
+        let attributedString = NSMutableAttributedString(string: value, attributes:[NSAttributedString.Key.link: URL(string: value) ?? ""])
         self.attributedText = attributedString
     }
     
@@ -104,6 +106,38 @@ extension UITextView {
         
         let activityViewController = UIActivityViewController(activityItems: [urlToOpen], applicationActivities: nil)
         self.parentViewController!.present(activityViewController, animated: true)
+    }
+    
+}
+
+
+var loadingView : UIView?
+
+extension UIViewController {
+    
+    func showProgress(onView: UIView) {
+        if loadingView == nil {
+            let loadingProgressView = UIView.init(frame: onView.bounds)
+            loadingProgressView.backgroundColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 0.3)
+            
+            let indicatorView = UIActivityIndicatorView.init(style: .whiteLarge)
+            indicatorView.startAnimating()
+            indicatorView.center = loadingProgressView.center
+            
+            DispatchQueue.main.async {
+                loadingProgressView.addSubview(indicatorView)
+                onView.addSubview(loadingProgressView)
+            }
+            
+            loadingView = loadingProgressView
+        }
+    }
+    
+    func removeProgress() {
+        DispatchQueue.main.async {
+            loadingView?.removeFromSuperview()
+            loadingView = nil
+        }
     }
     
 }

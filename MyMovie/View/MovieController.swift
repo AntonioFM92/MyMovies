@@ -10,15 +10,18 @@ import UIKit
 
 protocol MovieControllerDelegate {
     
+    func showLoadingView()
+    func removeLoadingView()
+    
     func successSearch(movies: MovieDto?)
-    //func failed( error: ErrorDto)
+    func failed(error: String)
     
 }
 
 class MovieController: UIViewController {
     
-    //MARK: - Outlets
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var contentView: UIView!
     @IBOutlet var movieTableView: UITableView!
     
     var moviesDto: MovieDto?
@@ -29,6 +32,10 @@ class MovieController: UIViewController {
         
         presenter = MoviesPresenter(ui: self)
         
+        movieTableView.sectionHeaderHeight = 0.0
+        movieTableView.sectionFooterHeight = 0.0
+        movieTableView.tableFooterView = UIView(frame:CGRect.zero)
+        
     }
     
 }
@@ -37,11 +44,26 @@ class MovieController: UIViewController {
 //MARK: - DelegateClass
 extension MovieController: MovieControllerDelegate {
     
+    func showLoadingView(){
+        showProgress(onView: self.contentView)
+    }
+    
+    func removeLoadingView(){
+        removeProgress()
+    }
+    
     func successSearch(movies: MovieDto?) {
+        presenter?.removeLoadingView()
         if movies != nil {
             moviesDto = movies
             movieTableView.reloadData()
         }
+    }
+    
+    func failed(error: String) {
+        let alert = UIAlertController(title: error, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
     
 }
@@ -49,18 +71,22 @@ extension MovieController: MovieControllerDelegate {
 //MARK: - SearchBarDelegate
 extension MovieController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.showsCancelButton = true
         if searchText.count > 3 {
+            presenter?.showLoadingView()
             presenter?.searchMovie(parameters: Utilities.getParametersSearchMovie(movieTitle: self.searchBar.text!), body: [:])
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
         
         presenter?.searchMovie(parameters: Utilities.getParametersSearchMovie(movieTitle: self.searchBar.text!), body: [:])
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
     }
     

@@ -30,14 +30,12 @@ class MovieDetailModel: MovieDetailModelDelegate {
         apiManager.get(url: Utilities.urlBase, parameters: parameters, apiCallback:{(isSuccessful, JSON, error) in
             if isSuccessful{
                 if let movieDetailJSONResponse = Mapper<MovieDetailDto>().map(JSONObject: JSON){
-                    print(movieDetailJSONResponse)
                     callBacks(true, movieDetailJSONResponse, nil)
                 }else {
-                    
+                    callBacks(false,nil,error)
                 }
-                
             }else {
-                //callBacks(false,nil,error)
+                callBacks(false,nil,error)
             }
         })
     }

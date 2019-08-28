@@ -10,23 +10,14 @@ import Foundation
 
 protocol MoviesPresenterDelegate {
     
+    func showLoadingView()
+    func removeLoadingView()
+    
     func searchMovie(parameters: [String: String], body: [String: String])
     
 }
 
 class MoviesPresenter: MoviesPresenterDelegate {
-    
-    func searchMovie(parameters: [String: String], body: [String: String]) {
-        
-        model!.getMovies(parameters: parameters, body: [:], callBacks:{ (isSuccess, movies, error) in
-            if isSuccess{
-                self.movieController.successSearch(movies: movies)
-            }else{
-                print("error")
-                //self.movieController.failed(error: error!)
-            }
-        })
-    }
     
     var movieController: MovieControllerDelegate
     var model: MoviesModel?
@@ -34,6 +25,25 @@ class MoviesPresenter: MoviesPresenterDelegate {
     init(ui: MovieControllerDelegate){
         movieController = ui
         model = MoviesModel(presenter: self)
+    }
+    
+    func searchMovie(parameters: [String: String], body: [String: String]) {
+        
+        model!.getMovies(parameters: parameters, body: [:], callBacks:{ (isSuccess, movies, error) in
+            if isSuccess{
+                self.movieController.successSearch(movies: movies)
+            }else{
+                self.movieController.failed(error: error!)
+            }
+        })
+    }
+    
+    func showLoadingView(){
+        movieController.showLoadingView()
+    }
+    
+    func removeLoadingView(){
+        movieController.removeLoadingView()
     }
     
 }

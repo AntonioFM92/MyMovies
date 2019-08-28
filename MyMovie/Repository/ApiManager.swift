@@ -19,8 +19,6 @@ class ApiManager {
         let headers: HTTPHeaders = [ : ]
         
         Alamofire.request(url, method: .get, parameters: parameters, headers: headers).responseJSON{ response in
-            print(url)
-            print(parameters)
             switch response.result{
                 
             case .success(let data) :
@@ -30,17 +28,12 @@ class ApiManager {
                     apiCallback(true,data,"")
                     break
                 default:
-                    //let errorResponse = Mapper<ErrorDto>().map(JSONObject: data)
-                    //apiCallback(false,nil,errorResponse)
+                    apiCallback(false,nil,"Error en la petición")
                     break
                 }
                 
             case .failure( _) :
-                //var errorModel:ErrorDto = ErrorDto()!
-                //let reqErr = RequestError(message:"")
-                //errorModel.errors?.append(reqErr!)
-                
-                //apiCallback(false,nil,errorModel)
+                apiCallback(false,nil,"Ocurrió un error. Compruebe su conexión a Internet.")
                 break
                 
             }

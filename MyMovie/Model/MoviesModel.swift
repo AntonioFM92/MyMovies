@@ -32,11 +32,10 @@ class MoviesModel: MoviesModelDelegate {
                 if let moviesJSONResponse = Mapper<MovieDto>().map(JSONObject: JSON){
                     callBacks(true, moviesJSONResponse, nil)
                 }else {
-                    
+                    callBacks(false,nil,error)
                 }
-                
             }else {
-                //callBacks(false,nil,error)
+                callBacks(false,nil,error)
             }
         })
     }

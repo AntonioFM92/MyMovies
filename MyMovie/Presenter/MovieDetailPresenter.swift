@@ -12,6 +12,9 @@ protocol MovieDetailPresenterDelegate {
     
     func initMovieDetail(movieTitle: String, movieImage: String, movieDate: String, movieDuration: String, movieGenre: String, movieWebsite: String, moviePlot: String)
     
+    func showLoadingView()
+    func removeLoadingView()
+    
     func getMovieDetail(parameters: [String: String], body: [String: String])
 }
 
@@ -23,8 +26,7 @@ class MovieDetailPresenter: MovieDetailPresenterDelegate {
             if isSuccess{
                 self.movieDetailController.successSearch(movieDetail: movieDetail)
             }else{
-                print("error")
-                //self.movieController.failed(error: error!)
+                self.movieDetailController.failed(error: error!)
             }
         })
     }
@@ -40,6 +42,14 @@ class MovieDetailPresenter: MovieDetailPresenterDelegate {
     
     func initMovieDetail(movieTitle: String, movieImage: String, movieDate: String, movieDuration: String, movieGenre: String, movieWebsite: String, moviePlot: String){
         movieDetailController.initMovieDetail(movieTitle: movieTitle, movieImage: movieImage, movieDate: movieDate, movieDuration: movieDuration, movieGenre: movieGenre, movieWebsite: movieWebsite, moviePlot: moviePlot)
+    }
+    
+    func showLoadingView(){
+        movieDetailController.showLoadingView()
+    }
+    
+    func removeLoadingView(){
+        movieDetailController.removeLoadingView()
     }
     
 }

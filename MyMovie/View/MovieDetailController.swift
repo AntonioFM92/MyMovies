@@ -12,13 +12,16 @@ protocol MovieDetailControllerDelegate {
     
     func initMovieDetail(movieTitle: String, movieImage: String, movieDate: String, movieDuration: String, movieGenre: String, movieWebsite: String, moviePlot: String)
     
+    func showLoadingView()
+    func removeLoadingView()
+    
     func successSearch(movieDetail: MovieDetailDto?)
+    func failed(error: String)
     
 }
 
 class MovieDetailController: UIViewController {
 
-    //MARK: - Outlets
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieImage: UIImageView!
     @IBOutlet var movieDate: UILabel!
@@ -37,6 +40,7 @@ class MovieDetailController: UIViewController {
         super.viewDidLoad()
         
         presenter = MovieDetailPresenter(ui: self)
+        presenter?.showLoadingView()
         presenter?.getMovieDetail(parameters: Utilities.getParametersSearchMovieDetail(movieID: imdbID), body: [:])
         
         originalFrame = movieImage.frame
@@ -86,13 +90,27 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         
         self.movieImage.load(url: URL(string:Utilities.checkImageUrl(imageURL: movieImage))!)
         self.movieImage.setSaveGesture()
-        //self.movieImage.setResizeGesture()
+    }
+    
+    func showLoadingView(){
+        showProgress(onView: self.view)
+    }
+    
+    func removeLoadingView(){
+        removeProgress()
     }
     
     func successSearch(movieDetail: MovieDetailDto?) {
         if movieDetail != nil {
-            presenter!.initMovieDetail(movieTitle: movieDetail!.title!, movieImage: movieDetail!.poster!, movieDate: movieDetail!.released!, movieDuration: movieDetail!.runtime!, movieGenre: movieDetail!.genre!, movieWebsite: movieDetail!.website!, moviePlot: movieDetail!.plot!)
+            presenter!.removeLoadingView()
+            presenter!.initMovieDetail(movieTitle: movieDetail!.title!, movieImage: movieDetail!.poster!, movieDate: movieDetail!.released!, movieDuration: movieDetail!.runtime!, movieGenre: movieDetail!.genre!, movieWebsite: movieDetail?.website ?? "", moviePlot: movieDetail!.plot!)
         }
+    }
+    
+    func failed(error: String) {
+        let alert = UIAlertController(title: error, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
     
 }
