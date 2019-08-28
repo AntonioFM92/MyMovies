@@ -21,17 +21,17 @@ class MovieDetailController: UIViewController {
     //MARK: - Outlets
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieImage: UIImageView!
-    
     @IBOutlet var movieDate: UILabel!
     @IBOutlet var movieDuration: UILabel!
     @IBOutlet var movieGenre: UILabel!
     @IBOutlet var movieWebSite: UITextView!
     @IBOutlet var moviePlot: UITextView!
     
-    
     var movieDetailDto: MovieDetailDto?
     private var presenter: MovieDetailPresenterDelegate?
     var imdbID: String = ""
+    
+    var originalFrame: CGRect?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +39,38 @@ class MovieDetailController: UIViewController {
         presenter = MovieDetailPresenter(ui: self)
         presenter?.getMovieDetail(parameters: Utilities.getParametersSearchMovieDetail(movieID: imdbID), body: [:])
         
+        originalFrame = movieImage.frame
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapped(_:)))
+        movieImage.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    //Gesture to show image full screen
+    @objc func tapped(_ sender: UITapGestureRecognizer? = nil) {
+        
+        let tapGestureToClose = UITapGestureRecognizer(target: self, action: #selector(self.tappedToClose(_:)))
+        movieImage.addGestureRecognizer(tapGestureToClose)
+        
+        self.navigationController?.isNavigationBarHidden = true
+        self.view.bringSubviewToFront(movieImage)
+        
+        movieImage.frame = UIScreen.main.bounds
+        movieImage.backgroundColor = UIColor.black
+    }
+    
+    //Gesture to close image full screen
+    @objc func tappedToClose(_ sender: UITapGestureRecognizer? = nil) {
+        
+        self.navigationController?.isNavigationBarHidden = false
+        movieImage.frame = originalFrame!
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapped(_:)))
+        movieImage.addGestureRecognizer(tapGesture)
     }
 }
 
+//MARK: - DelegateClass
 extension MovieDetailController: MovieDetailControllerDelegate {
     
     func initMovieDetail(movieTitle: String, movieImage: String, movieDate: String, movieDuration: String, movieGenre: String, movieWebsite: String, moviePlot: String){
@@ -57,6 +86,7 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         
         self.movieImage.load(url: URL(string:Utilities.checkImageUrl(imageURL: movieImage))!)
         self.movieImage.setSaveGesture()
+        //self.movieImage.setResizeGesture()
     }
     
     func successSearch(movieDetail: MovieDetailDto?) {

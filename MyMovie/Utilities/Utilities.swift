@@ -31,6 +31,7 @@ class Utilities {
 }
 
 extension UIImageView {
+    
     func load(url: URL) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
@@ -42,6 +43,36 @@ extension UIImageView {
             }
         }
     }
+    
+    //ParentView of UIImageView
+    var parentViewController: UIViewController? {
+        var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder!.next
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
+    }
+    
+    func setSaveGesture() {
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressed(_:)))
+        self.addGestureRecognizer(longGesture)
+    }
+    
+    @objc func longPressed(_ sender: UILongPressGestureRecognizer? = nil) {
+        
+        let alert = UIAlertController(title: "¿Deseas guardar la imagen?", message: "Se guardará automaticamente en el carrete.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: {
+            action in UIImageWriteToSavedPhotosAlbum(self.image!, nil, nil, nil)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        self.parentViewController!.present(alert, animated: true)
+        
+    }
+    
 }
 
 extension UITextView {
@@ -77,35 +108,3 @@ extension UITextView {
     
 }
 
-extension UIImageView {
-    
-    //ParentView of UIImageView
-    var parentViewController: UIViewController? {
-        var parentResponder: UIResponder? = self
-        while parentResponder != nil {
-            parentResponder = parentResponder!.next
-            if let viewController = parentResponder as? UIViewController {
-                return viewController
-            }
-        }
-        return nil
-    }
-    
-    func setSaveGesture() {
-        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressed(_:)))
-        self.addGestureRecognizer(longGesture)
-    }
-    
-    
-    @objc func longPressed(_ sender: UITapGestureRecognizer? = nil) {
-        
-        let alert = UIAlertController(title: "¿Deseas guardar la imagen?", message: "Se guardará automaticamente en el carrete.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: {
-            action in UIImageWriteToSavedPhotosAlbum(self.image!, nil, nil, nil)
-        }))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        
-        self.parentViewController!.present(alert, animated: true)
-        
-    }
-}
