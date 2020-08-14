@@ -88,7 +88,10 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         
         self.moviePlot.text = moviePlot
         
-        self.movieImage.load(url: URL(string:Utilities.checkImageUrl(imageURL: movieImage))!)
+        guard let movieImageURL = URL(string: Utilities.checkImageUrl(imageURL: movieImage)) else {
+            return
+        }
+        self.movieImage.load(url: movieImageURL)
         self.movieImage.setSaveGesture()
     }
     
@@ -101,10 +104,11 @@ extension MovieDetailController: MovieDetailControllerDelegate {
     }
     
     func successSearch(movieDetail: MovieDetailDto?) {
-        if movieDetail != nil {
-            presenter!.removeLoadingView()
-            presenter!.initMovieDetail(movieTitle: movieDetail!.title!, movieImage: movieDetail!.poster!, movieDate: movieDetail!.released!, movieDuration: movieDetail!.runtime!, movieGenre: movieDetail!.genre!, movieWebsite: movieDetail?.website ?? "", moviePlot: movieDetail!.plot!)
+        guard let movieDetail = movieDetail else {
+            return
         }
+        presenter!.removeLoadingView()
+        presenter!.initMovieDetail(movieTitle: movieDetail.title ?? "", movieImage: movieDetail.poster ?? "", movieDate: movieDetail.released ?? "", movieDuration: movieDetail.runtime ?? "", movieGenre: movieDetail.genre ?? "", movieWebsite: movieDetail.website ?? "", moviePlot: movieDetail.plot ?? "")
     }
     
     func failed(error: String) {

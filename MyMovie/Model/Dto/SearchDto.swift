@@ -11,11 +11,11 @@ import ObjectMapper
 
 struct SearchDto : Mappable {
     
-    var title : String?
-    var year : String?
-    var imdbID : String?
-    var type : String?
-    var poster : String?
+    var title: String?
+    var year: String?
+    var imdbID: String?
+    var type: String?
+    var poster: String?
     
     init?(map: Map) {
         

@@ -18,7 +18,7 @@ class ApiManager {
         
         let headers: HTTPHeaders = [ : ]
         
-        Alamofire.request(url, method: .get, parameters: parameters, headers: headers).responseJSON{ response in
+        AF.request(url, method: .get, parameters: parameters, headers: headers).responseJSON{ response in
             switch response.result{
                 
             case .success(let data) :

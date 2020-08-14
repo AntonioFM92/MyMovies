@@ -29,7 +29,10 @@ class MoviesPresenter: MoviesPresenterDelegate {
     
     func searchMovie(parameters: [String: String], body: [String: String]) {
         
-        model!.getMovies(parameters: parameters, body: [:], callBacks:{ (isSuccess, movies, error) in
+        guard let model = model else {
+            return
+        }
+        model.getMovies(parameters: parameters, body: [:], callBacks:{ (isSuccess, movies, error) in
             if isSuccess{
                 self.movieController.successSearch(movies: movies)
             }else{

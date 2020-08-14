@@ -33,7 +33,10 @@ class MovieCell: UITableViewCell {
     }
     
     func setCellValues(movieImage: String, movieTitle: String, movieYear: String){
-        self.movieImageView.load(url: URL(string:Utilities.checkImageUrl(imageURL: movieImage))!)
+        guard let movieImageURL = URL(string: Utilities.checkImageUrl(imageURL: movieImage)) else {
+            return
+        }
+        self.movieImageView.load(url: movieImageURL)
         self.movieTitleLabel.text = movieTitle
         self.movieYearLabel.text = movieYear
     }
