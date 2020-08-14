@@ -88,7 +88,10 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         
         self.moviePlot.text = moviePlot
         
-        self.movieImage.load(url: URL(string:Utilities.checkImageUrl(imageURL: movieImage))!)
+        guard let movieImageURL = URL(string: Utilities.checkImageUrl(imageURL: movieImage)) else {
+            return
+        }
+        self.movieImage.load(url: movieImageURL)
         self.movieImage.setSaveGesture()
     }
     

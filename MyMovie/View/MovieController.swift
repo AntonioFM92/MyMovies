@@ -109,7 +109,10 @@ extension MovieController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let movieCell: MovieCell = movieTableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieCell
+        
+        guard let movieCell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieCell else {
+            return UITableViewCell(style: .default, reuseIdentifier: "movieCell")
+        }
         
         guard let moviesDto = moviesDto, let searchDto = moviesDto.search else {
             return UITableViewCell()
@@ -121,8 +124,13 @@ extension MovieController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movieDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "movieDetailController") as! MovieDetailController
-        movieDetailViewController.imdbID = (moviesDto?.search![indexPath.row].imdbID)!
+        guard let movieDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "movieDetailController") as? MovieDetailController else {
+            return
+        }
+        guard let searchDto = moviesDto?.search else {
+            return
+        }
+        movieDetailViewController.imdbID = searchDto[indexPath.row].imdbID ?? ""
         self.navigationController?.pushViewController(movieDetailViewController, animated: false)
     }
     
