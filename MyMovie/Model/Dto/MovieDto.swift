@@ -11,9 +11,9 @@ import ObjectMapper
 
 struct MovieDto : Mappable {
     
-    var search : [SearchDto]?
-    var totalResults : String?
-    var response : String?
+    var search: [SearchDto]?
+    var totalResults: String?
+    var response: String?
     
     init?(map: Map) {
         

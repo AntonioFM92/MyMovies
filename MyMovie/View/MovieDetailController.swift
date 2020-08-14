@@ -101,10 +101,11 @@ extension MovieDetailController: MovieDetailControllerDelegate {
     }
     
     func successSearch(movieDetail: MovieDetailDto?) {
-        if movieDetail != nil {
-            presenter!.removeLoadingView()
-            presenter!.initMovieDetail(movieTitle: movieDetail!.title!, movieImage: movieDetail!.poster!, movieDate: movieDetail!.released!, movieDuration: movieDetail!.runtime!, movieGenre: movieDetail!.genre!, movieWebsite: movieDetail?.website ?? "", moviePlot: movieDetail!.plot!)
+        guard let movieDetail = movieDetail else {
+            return
         }
+        presenter!.removeLoadingView()
+        presenter!.initMovieDetail(movieTitle: movieDetail.title ?? "", movieImage: movieDetail.poster ?? "", movieDate: movieDetail.released ?? "", movieDuration: movieDetail.runtime ?? "", movieGenre: movieDetail.genre ?? "", movieWebsite: movieDetail.website ?? "", moviePlot: movieDetail.plot ?? "")
     }
     
     func failed(error: String) {
