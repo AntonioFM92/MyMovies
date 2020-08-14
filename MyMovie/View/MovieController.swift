@@ -54,10 +54,11 @@ extension MovieController: MovieControllerDelegate {
     
     func successSearch(movies: MovieDto?) {
         presenter?.removeLoadingView()
-        if movies != nil {
-            moviesDto = movies
-            movieTableView.reloadData()
+        guard let movies = movies else {
+            return
         }
+        moviesDto = movies
+        movieTableView.reloadData()
     }
     
     func failed(error: String) {
@@ -101,23 +102,35 @@ extension MovieController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if moviesDto?.search != nil {
-            return (moviesDto?.search?.count)!
+        guard let moviesDto = moviesDto, let searchDto = moviesDto.search else {
+            return 0
         }
-        return 0
+        return searchDto.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let movieCell: MovieCell = movieTableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieCell
         
-        movieCell.setCellValues(movieImage: (moviesDto?.search![indexPath.row].poster)!, movieTitle: (moviesDto?.search![indexPath.row].title)!, movieYear: (moviesDto?.search![indexPath.row].year)!)
+        guard let movieCell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieCell else {
+            return UITableViewCell(style: .default, reuseIdentifier: "movieCell")
+        }
+        
+        guard let moviesDto = moviesDto, let searchDto = moviesDto.search else {
+            return UITableViewCell()
+        }
+        
+        movieCell.setCellValues(movieImage: searchDto[indexPath.row].poster ?? "", movieTitle: searchDto[indexPath.row].title ?? "", movieYear: searchDto[indexPath.row].year ?? "")
         
         return movieCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movieDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "movieDetailController") as! MovieDetailController
-        movieDetailViewController.imdbID = (moviesDto?.search![indexPath.row].imdbID)!
+        guard let movieDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "movieDetailController") as? MovieDetailController else {
+            return
+        }
+        guard let searchDto = moviesDto?.search else {
+            return
+        }
+        movieDetailViewController.imdbID = searchDto[indexPath.row].imdbID ?? ""
         self.navigationController?.pushViewController(movieDetailViewController, animated: false)
     }
     

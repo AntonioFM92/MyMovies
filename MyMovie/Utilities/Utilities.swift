@@ -24,7 +24,7 @@ class Utilities {
     
     //Load movieImage or image by default
     static func checkImageUrl(imageURL: String) -> String {
-        let urlString = imageURL != "" ? imageURL : "https://via.placeholder.com/150"
+        let urlString = !imageURL.isEmpty ? imageURL : "https://via.placeholder.com/150"
         return urlString
     }
     

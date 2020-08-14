@@ -11,8 +11,8 @@ import ObjectMapper
 
 struct RatingDto : Mappable {
     
-    var source : String?
-    var value : String?
+    var source: String?
+    var value: String?
     
     init?(map: Map) {
         
