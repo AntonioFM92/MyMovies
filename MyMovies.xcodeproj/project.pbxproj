@@ -26,6 +26,7 @@
 		902E89662315CE3C0021E21D /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E89652315CE3C0021E21D /* MovieDetailModel.swift */; };
 		902E89682315CE490021E21D /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E89672315CE490021E21D /* MovieDetailPresenter.swift */; };
 		C7417BB998531A555A614C7F /* Pods_MyMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5144839CA8BDF52727D8251 /* Pods_MyMovie.framework */; };
+		F516457B24E96960005D3DB7 /* Environments.plist in Resources */ = {isa = PBXBuildFile; fileRef = F516457A24E96960005D3DB7 /* Environments.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B9E073D9E39F4E044F9BED8F /* Pods-MyMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovie/Pods-MyMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		C57F70A42247BF6EB09B4667 /* Pods-MyMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovie/Pods-MyMovie.release.xcconfig"; sourceTree = "<group>"; };
 		F5144839CA8BDF52727D8251 /* Pods_MyMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F516457A24E96960005D3DB7 /* Environments.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,16 +98,16 @@
 		901DCEEA2314783C004B645D /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
+				901DCEEB2314783C004B645D /* AppDelegate.swift */,
+				F516457924E96934005D3DB7 /* resources */,
+				F516457724E968DA005D3DB7 /* configuration */,
 				901DCF0223147FCE004B645D /* Repository */,
 				901DCF0123147FC9004B645D /* Presenter */,
 				901DCF0023147FC3004B645D /* Model */,
 				901DCEFF23147FBA004B645D /* View */,
 				902E895C2315B20B0021E21D /* Utilities */,
-				901DCEEB2314783C004B645D /* AppDelegate.swift */,
 				901DCEEF2314783C004B645D /* Main.storyboard */,
-				901DCEF22314783C004B645D /* Assets.xcassets */,
 				901DCEF42314783C004B645D /* LaunchScreen.storyboard */,
-				901DCEF72314783C004B645D /* Info.plist */,
 			);
 			path = MyMovies;
 			sourceTree = "<group>";
@@ -175,6 +177,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F516457724E968DA005D3DB7 /* configuration */ = {
+			isa = PBXGroup;
+			children = (
+				901DCEF72314783C004B645D /* Info.plist */,
+				F516457824E968F0005D3DB7 /* xcconfig */,
+			);
+			path = configuration;
+			sourceTree = "<group>";
+		};
+		F516457824E968F0005D3DB7 /* xcconfig */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = xcconfig;
+			sourceTree = "<group>";
+		};
+		F516457924E96934005D3DB7 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				F516457C24E96973005D3DB7 /* fonts */,
+				901DCEF22314783C004B645D /* Assets.xcassets */,
+				F516457A24E96960005D3DB7 /* Environments.plist */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		F516457C24E96973005D3DB7 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,6 +273,7 @@
 				901DCEF62314783C004B645D /* LaunchScreen.storyboard in Resources */,
 				901DCEF32314783C004B645D /* Assets.xcassets in Resources */,
 				901DCEFE23147847004B645D /* README.md in Resources */,
+				F516457B24E96960005D3DB7 /* Environments.plist in Resources */,
 				901DCEF12314783C004B645D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MyMovies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyMovies/configuration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,7 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MyMovies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyMovies/configuration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

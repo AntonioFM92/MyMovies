@@ -1,4 +1,4 @@
-# MyMovie
+# MyMovies
 Finding movies using OMDb API
 
 ## Entorno de desarrollo
