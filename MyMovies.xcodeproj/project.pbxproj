@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		901DCEE82314783C004B645D /* MyMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		901DCEE82314783C004B645D /* MyMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		901DCEEB2314783C004B645D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		901DCEF02314783C004B645D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		901DCEF22314783C004B645D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				901DCEFD23147847004B645D /* README.md */,
-				901DCEEA2314783C004B645D /* MyMovie */,
+				901DCEEA2314783C004B645D /* MyMovies */,
 				901DCEE92314783C004B645D /* Products */,
 				9FD2974BE624BAC2CE17560C /* Pods */,
 				6E940D759D18B8F9444AD14F /* Frameworks */,
@@ -88,12 +88,12 @@
 		901DCEE92314783C004B645D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				901DCEE82314783C004B645D /* MyMovie.app */,
+				901DCEE82314783C004B645D /* MyMovies.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		901DCEEA2314783C004B645D /* MyMovie */ = {
+		901DCEEA2314783C004B645D /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
 				901DCF0223147FCE004B645D /* Repository */,
@@ -107,7 +107,7 @@
 				901DCEF42314783C004B645D /* LaunchScreen.storyboard */,
 				901DCEF72314783C004B645D /* Info.plist */,
 			);
-			path = MyMovie;
+			path = MyMovies;
 			sourceTree = "<group>";
 		};
 		901DCEFF23147FBA004B645D /* View */ = {
@@ -178,9 +178,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		901DCEE72314783C004B645D /* MyMovie */ = {
+		901DCEE72314783C004B645D /* MyMovies */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 901DCEFA2314783C004B645D /* Build configuration list for PBXNativeTarget "MyMovie" */;
+			buildConfigurationList = 901DCEFA2314783C004B645D /* Build configuration list for PBXNativeTarget "MyMovies" */;
 			buildPhases = (
 				8982D6E8A19AAE808990D1AA /* [CP] Check Pods Manifest.lock */,
 				901DCEE42314783C004B645D /* Sources */,
@@ -192,9 +192,9 @@
 			);
 			dependencies = (
 			);
-			name = MyMovie;
+			name = MyMovies;
 			productName = MyMovie;
-			productReference = 901DCEE82314783C004B645D /* MyMovie.app */;
+			productReference = 901DCEE82314783C004B645D /* MyMovies.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 901DCEE32314783C004B645D /* Build configuration list for PBXProject "MyMovie" */;
+			buildConfigurationList = 901DCEE32314783C004B645D /* Build configuration list for PBXProject "MyMovies" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,7 +225,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				901DCEE72314783C004B645D /* MyMovie */,
+				901DCEE72314783C004B645D /* MyMovies */,
 			);
 		};
 /* End PBXProject section */
@@ -448,7 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MyMovie/Info.plist;
+				INFOPLIST_FILE = MyMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,7 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MyMovie/Info.plist;
+				INFOPLIST_FILE = MyMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,7 +481,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		901DCEE32314783C004B645D /* Build configuration list for PBXProject "MyMovie" */ = {
+		901DCEE32314783C004B645D /* Build configuration list for PBXProject "MyMovies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				901DCEF82314783C004B645D /* Debug */,
@@ -490,7 +490,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		901DCEFA2314783C004B645D /* Build configuration list for PBXNativeTarget "MyMovie" */ = {
+		901DCEFA2314783C004B645D /* Build configuration list for PBXNativeTarget "MyMovies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				901DCEFB2314783C004B645D /* Debug */,
