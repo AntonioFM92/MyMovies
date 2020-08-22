@@ -53,8 +53,6 @@
 		902E89652315CE3C0021E21D /* MovieDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModel.swift; sourceTree = "<group>"; };
 		902E89672315CE490021E21D /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
 		AD154EA182B0B53752A75846 /* Pods_MyMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B9E073D9E39F4E044F9BED8F /* Pods-MyMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovie/Pods-MyMovie.debug.xcconfig"; sourceTree = "<group>"; };
-		C57F70A42247BF6EB09B4667 /* Pods-MyMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovie/Pods-MyMovie.release.xcconfig"; sourceTree = "<group>"; };
 		CC947DA4799174700C64D70F /* Pods-MyMovies.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.production.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.production.xcconfig"; sourceTree = "<group>"; };
 		F516457A24E96960005D3DB7 /* Environments.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,8 +172,6 @@
 		9FD2974BE624BAC2CE17560C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B9E073D9E39F4E044F9BED8F /* Pods-MyMovie.debug.xcconfig */,
-				C57F70A42247BF6EB09B4667 /* Pods-MyMovie.release.xcconfig */,
 				7CAF3428ABD7E8253D19D4C4 /* Pods-MyMovies.debug.xcconfig */,
 				1B478C7E080C86C1B3140C1A /* Pods-MyMovies.release.xcconfig */,
 				CC947DA4799174700C64D70F /* Pods-MyMovies.production.xcconfig */,
