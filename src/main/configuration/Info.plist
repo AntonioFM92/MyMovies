@@ -56,5 +56,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>EnvironmentKey</key>
+	<string>$(Environment)</string>
+	<key>EncryptPassword</key>
+	<string>$(EncryptPassword)</string>
 </dict>
 </plist>

@@ -55,6 +55,9 @@
 		AD154EA182B0B53752A75846 /* Pods_MyMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC947DA4799174700C64D70F /* Pods-MyMovies.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.production.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.production.xcconfig"; sourceTree = "<group>"; };
 		F516457A24E96960005D3DB7 /* Environments.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
+		F586C7BB24F1B2DA001C48EC /* MyMovies.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MyMovies.debug.xcconfig; sourceTree = "<group>"; };
+		F586C7BC24F1B309001C48EC /* MyMovies.production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MyMovies.production.xcconfig; sourceTree = "<group>"; };
+		F586C7BD24F1B31B001C48EC /* MyMovies.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MyMovies.release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 			children = (
 				901DCEEB2314783C004B645D /* AppDelegate.swift */,
 				F516457924E96934005D3DB7 /* resources */,
+				F586C7BF24F1B75B001C48EC /* services */,
 				F516457724E968DA005D3DB7 /* configuration */,
 				901DCF0223147FCE004B645D /* Repository */,
 				901DCF0123147FC9004B645D /* Presenter */,
@@ -191,6 +195,9 @@
 		F516457824E968F0005D3DB7 /* xcconfig */ = {
 			isa = PBXGroup;
 			children = (
+				F586C7BB24F1B2DA001C48EC /* MyMovies.debug.xcconfig */,
+				F586C7BD24F1B31B001C48EC /* MyMovies.release.xcconfig */,
+				F586C7BC24F1B309001C48EC /* MyMovies.production.xcconfig */,
 			);
 			path = xcconfig;
 			sourceTree = "<group>";
@@ -220,6 +227,13 @@
 			path = generated;
 			sourceTree = "<group>";
 		};
+		F586C7BF24F1B75B001C48EC /* services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,7 +242,7 @@
 			buildConfigurationList = 901DCEFA2314783C004B645D /* Build configuration list for PBXNativeTarget "MyMovies" */;
 			buildPhases = (
 				8982D6E8A19AAE808990D1AA /* [CP] Check Pods Manifest.lock */,
-				F586C7B924F1A6C5001C48EC /* ShellScript */,
+				F586C7B924F1A6C5001C48EC /* Environment */,
 				901DCEE42314783C004B645D /* Sources */,
 				901DCEE52314783C004B645D /* Frameworks */,
 				901DCEE62314783C004B645D /* Resources */,
@@ -327,7 +341,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMovies/Pods-MyMovies-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F586C7B924F1A6C5001C48EC /* ShellScript */ = {
+		F586C7B924F1A6C5001C48EC /* Environment */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,6 +351,7 @@
 			inputPaths = (
 				"${SRCROOT}/main/resources/Environments.plist",
 			);
+			name = Environment;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -345,7 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SDOSEnvironment/src/Scripts/SDOSEnvironment\" -b ${PRODUCT_BUNDLE_IDENTIFIER} -i\n\"${SRCROOT}/main/resources/Environments.plist\" -output-bin \n\"${SRCROOT}/main/resources/generated/Environments.bin\" -output-file\n\"${SRCROOT}/main/resources/generated/EnvironmentGenerated.swift\" -validate-environment\n${SDOSEnvironment}\n";
+			shellScript = "\"${PODS_ROOT}/SDOSEnvironment/src/Scripts/Environment\" -b ${PRODUCT_BUNDLE_IDENTIFIER} -i\n\"${SRCROOT}/main/resources/Environments.plist\" -output-bin \n\"${SRCROOT}/main/resources/generated/Environments.bin\" -output-file\n\"${SRCROOT}/main/resources/generated/EnvironmentGenerated.swift\" -validate-environment\n${Environment}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -395,6 +410,7 @@
 /* Begin XCBuildConfiguration section */
 		901DCEF82314783C004B645D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F586C7BB24F1B2DA001C48EC /* MyMovies.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -456,6 +472,7 @@
 		};
 		901DCEF92314783C004B645D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F586C7BD24F1B31B001C48EC /* MyMovies.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -547,6 +564,7 @@
 		};
 		F516457D24E9B41E005D3DB7 /* Production */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F586C7BC24F1B309001C48EC /* MyMovies.production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
