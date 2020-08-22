@@ -1,0 +1,33 @@
+PODS:
+  - Alamofire (5.2.2)
+  - ObjectMapper (3.5.3)
+  - RNCryptor (5.1.0)
+  - SDOSEnvironment (1.1.1):
+    - RNCryptor (~> 5.0)
+    - SDOSEnvironment/SDOSEnvironment (= 1.1.1)
+  - SDOSEnvironment/SDOSEnvironment (1.1.1):
+    - RNCryptor (~> 5.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - ObjectMapper (~> 3.5)
+  - SDOSEnvironment
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - RNCryptor
+  https://github.com/SDOSLabs/cocoapods-specs.git:
+    - SDOSEnvironment
+  trunk:
+    - Alamofire
+    - ObjectMapper
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
+  SDOSEnvironment: defac796858a1e4353274adc5ebe9a2f9dbb309f
+
+PODFILE CHECKSUM: f98690e14b234f13c39e006678edb4a83c8aa115
+
+COCOAPODS: 1.9.1
