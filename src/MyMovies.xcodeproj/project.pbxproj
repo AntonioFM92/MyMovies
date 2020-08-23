@@ -27,6 +27,8 @@
 		902E89662315CE3C0021E21D /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E89652315CE3C0021E21D /* MovieDetailModel.swift */; };
 		902E89682315CE490021E21D /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E89672315CE490021E21D /* MovieDetailPresenter.swift */; };
 		F516457B24E96960005D3DB7 /* Environments.plist in Resources */ = {isa = PBXBuildFile; fileRef = F516457A24E96960005D3DB7 /* Environments.plist */; };
+		F586C7C224F28204001C48EC /* Environments.bin in Resources */ = {isa = PBXBuildFile; fileRef = F586C7C024F28204001C48EC /* Environments.bin */; };
+		F586C7C324F28204001C48EC /* EnvironmentGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586C7C124F28204001C48EC /* EnvironmentGenerated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		F586C7BB24F1B2DA001C48EC /* MyMovies.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MyMovies.debug.xcconfig; sourceTree = "<group>"; };
 		F586C7BC24F1B309001C48EC /* MyMovies.production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MyMovies.production.xcconfig; sourceTree = "<group>"; };
 		F586C7BD24F1B31B001C48EC /* MyMovies.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MyMovies.release.xcconfig; sourceTree = "<group>"; };
+		F586C7C024F28204001C48EC /* Environments.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Environments.bin; sourceTree = "<group>"; };
+		F586C7C124F28204001C48EC /* EnvironmentGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentGenerated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +227,8 @@
 		F586C7BA24F1AB77001C48EC /* generated */ = {
 			isa = PBXGroup;
 			children = (
+				F586C7C124F28204001C48EC /* EnvironmentGenerated.swift */,
+				F586C7C024F28204001C48EC /* Environments.bin */,
 			);
 			path = generated;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 				901DCEF62314783C004B645D /* LaunchScreen.storyboard in Resources */,
 				901DCEF32314783C004B645D /* Assets.xcassets in Resources */,
 				901DCEFE23147847004B645D /* README.md in Resources */,
+				F586C7C224F28204001C48EC /* Environments.bin in Resources */,
 				F516457B24E96960005D3DB7 /* Environments.plist in Resources */,
 				901DCEF12314783C004B645D /* Main.storyboard in Resources */,
 			);
@@ -356,11 +363,11 @@
 			);
 			outputPaths = (
 				"${SRCROOT}/main/resources/generated/Environments.bin",
-				"${SRCROOT}/main/resources/generated/EnvironmentGenerated.swift",
+				"$(SRCROOT)/main/resources/generated/EnvironmentGenerated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SDOSEnvironment/src/Scripts/Environment\" -b ${PRODUCT_BUNDLE_IDENTIFIER} -i\n\"${SRCROOT}/main/resources/Environments.plist\" -output-bin \n\"${SRCROOT}/main/resources/generated/Environments.bin\" -output-file\n\"${SRCROOT}/main/resources/generated/EnvironmentGenerated.swift\" -validate-environment\n${Environment}\n";
+			shellScript = "\"${PODS_ROOT}/SDOSEnvironment/src/Scripts/SDOSEnvironment\" -b ${PRODUCT_BUNDLE_IDENTIFIER} -i \"${SRCROOT}/main/resources/Environments.plist\" -output-bin \"${SRCROOT}/main/resources/generated/Environments.bin\" -output-file \"${SRCROOT}/main/resources/generated/EnvironmentGenerated.swift\" -validate-environment ${SDOSEnvironment}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -374,6 +381,7 @@
 				902E89682315CE490021E21D /* MovieDetailPresenter.swift in Sources */,
 				902E895B2315A97E0021E21D /* MovieCell.swift in Sources */,
 				901DCF0723148073004B645D /* MovieDetailController.swift in Sources */,
+				F586C7C324F28204001C48EC /* EnvironmentGenerated.swift in Sources */,
 				901DCF09231480BE004B645D /* ApiManager.swift in Sources */,
 				901DCF0B23148A55004B645D /* MovieDto.swift in Sources */,
 				901DCEEC2314783C004B645D /* AppDelegate.swift in Sources */,
