@@ -3,3 +3,4 @@ ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework
 ${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework
 ${BUILT_PRODUCTS_DIR}/SDOSEnvironment/SDOSEnvironment.framework
+${BUILT_PRODUCTS_DIR}/SDOSPluggableApplicationDelegate/SDOSPluggableApplicationDelegate.framework

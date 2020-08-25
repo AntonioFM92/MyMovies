@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		3ADDD992CA34B9AA29D9CE04 /* Pods_MyMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD154EA182B0B53752A75846 /* Pods_MyMovies.framework */; };
 		901DCEEC2314783C004B645D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCEEB2314783C004B645D /* AppDelegate.swift */; };
-		901DCEF12314783C004B645D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901DCEEF2314783C004B645D /* Main.storyboard */; };
 		901DCEF32314783C004B645D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 901DCEF22314783C004B645D /* Assets.xcassets */; };
-		901DCEF62314783C004B645D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901DCEF42314783C004B645D /* LaunchScreen.storyboard */; };
 		901DCEFE23147847004B645D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 901DCEFD23147847004B645D /* README.md */; };
 		901DCF052314801E004B645D /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCF042314801E004B645D /* MovieController.swift */; };
 		901DCF0723148073004B645D /* MovieDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901DCF0623148073004B645D /* MovieDetailController.swift */; };
@@ -26,9 +24,13 @@
 		902E89642315B88C0021E21D /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E89632315B88C0021E21D /* MoviesPresenter.swift */; };
 		902E89662315CE3C0021E21D /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E89652315CE3C0021E21D /* MovieDetailModel.swift */; };
 		902E89682315CE490021E21D /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E89672315CE490021E21D /* MovieDetailPresenter.swift */; };
-		F516457B24E96960005D3DB7 /* Environments.plist in Resources */ = {isa = PBXBuildFile; fileRef = F516457A24E96960005D3DB7 /* Environments.plist */; };
 		F586C7C224F28204001C48EC /* Environments.bin in Resources */ = {isa = PBXBuildFile; fileRef = F586C7C024F28204001C48EC /* Environments.bin */; };
-		F586C7C324F28204001C48EC /* EnvironmentGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586C7C124F28204001C48EC /* EnvironmentGenerated.swift */; };
+		F586C7C524F28A9D001C48EC /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586C7C424F28A9D001C48EC /* EnvironmentService.swift */; };
+		F586C7C724F28CBE001C48EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586C7C624F28CBE001C48EC /* SceneDelegate.swift */; };
+		F586C7C924F29FCA001C48EC /* Environment.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586C7C824F29FCA001C48EC /* Environment.generated.swift */; };
+		F586C7CE24F42833001C48EC /* RootViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586C7CD24F42833001C48EC /* RootViewService.swift */; };
+		F586C7CF24F43429001C48EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901DCEEF2314783C004B645D /* Main.storyboard */; };
+		F586C7D024F43449001C48EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901DCEF42314783C004B645D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +63,11 @@
 		F586C7BC24F1B309001C48EC /* MyMovies.production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MyMovies.production.xcconfig; sourceTree = "<group>"; };
 		F586C7BD24F1B31B001C48EC /* MyMovies.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MyMovies.release.xcconfig; sourceTree = "<group>"; };
 		F586C7C024F28204001C48EC /* Environments.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Environments.bin; sourceTree = "<group>"; };
-		F586C7C124F28204001C48EC /* EnvironmentGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentGenerated.swift; sourceTree = "<group>"; };
+		F586C7C424F28A9D001C48EC /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
+		F586C7C624F28CBE001C48EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F586C7C824F29FCA001C48EC /* Environment.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.generated.swift; sourceTree = "<group>"; };
+		F586C7CB24F2CE6B001C48EC /* SDOSEnvironment.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = SDOSEnvironment.sh; sourceTree = "<group>"; };
+		F586C7CD24F42833001C48EC /* RootViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 		901DCEDF2314783C004B645D = {
 			isa = PBXGroup;
 			children = (
+				F586C7CA24F2CE52001C48EC /* scripts */,
 				901DCEFD23147847004B645D /* README.md */,
 				901DCEEA2314783C004B645D /* main */,
 				901DCEE92314783C004B645D /* Products */,
@@ -107,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				901DCEEB2314783C004B645D /* AppDelegate.swift */,
+				F586C7C624F28CBE001C48EC /* SceneDelegate.swift */,
 				F516457924E96934005D3DB7 /* resources */,
 				F586C7BF24F1B75B001C48EC /* services */,
 				F516457724E968DA005D3DB7 /* configuration */,
@@ -227,7 +235,7 @@
 		F586C7BA24F1AB77001C48EC /* generated */ = {
 			isa = PBXGroup;
 			children = (
-				F586C7C124F28204001C48EC /* EnvironmentGenerated.swift */,
+				F586C7C824F29FCA001C48EC /* Environment.generated.swift */,
 				F586C7C024F28204001C48EC /* Environments.bin */,
 			);
 			path = generated;
@@ -236,8 +244,18 @@
 		F586C7BF24F1B75B001C48EC /* services */ = {
 			isa = PBXGroup;
 			children = (
+				F586C7C424F28A9D001C48EC /* EnvironmentService.swift */,
+				F586C7CD24F42833001C48EC /* RootViewService.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		F586C7CA24F2CE52001C48EC /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				F586C7CB24F2CE6B001C48EC /* SDOSEnvironment.sh */,
+			);
+			path = scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +266,7 @@
 			buildConfigurationList = 901DCEFA2314783C004B645D /* Build configuration list for PBXNativeTarget "MyMovies" */;
 			buildPhases = (
 				8982D6E8A19AAE808990D1AA /* [CP] Check Pods Manifest.lock */,
-				F586C7B924F1A6C5001C48EC /* Environment */,
+				F586C7B924F1A6C5001C48EC /* SDOSEnvironment - Encrypt environments */,
 				901DCEE42314783C004B645D /* Sources */,
 				901DCEE52314783C004B645D /* Frameworks */,
 				901DCEE62314783C004B645D /* Resources */,
@@ -301,12 +319,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				901DCEF62314783C004B645D /* LaunchScreen.storyboard in Resources */,
 				901DCEF32314783C004B645D /* Assets.xcassets in Resources */,
 				901DCEFE23147847004B645D /* README.md in Resources */,
 				F586C7C224F28204001C48EC /* Environments.bin in Resources */,
-				F516457B24E96960005D3DB7 /* Environments.plist in Resources */,
-				901DCEF12314783C004B645D /* Main.storyboard in Resources */,
+				F586C7D024F43449001C48EC /* LaunchScreen.storyboard in Resources */,
+				F586C7CF24F43429001C48EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +365,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMovies/Pods-MyMovies-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F586C7B924F1A6C5001C48EC /* Environment */ = {
+		F586C7B924F1A6C5001C48EC /* SDOSEnvironment - Encrypt environments */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -357,17 +374,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/main/resources/Environments.plist",
+				"$(SRCROOT)/scripts/SDOSEnvironment.sh",
 			);
-			name = Environment;
+			name = "SDOSEnvironment - Encrypt environments";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${SRCROOT}/main/resources/generated/Environments.bin",
-				"$(SRCROOT)/main/resources/generated/EnvironmentGenerated.swift",
+				"$(SRCROOT)/main/resources/generated/Environment.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SDOSEnvironment/src/Scripts/SDOSEnvironment\" -b ${PRODUCT_BUNDLE_IDENTIFIER} -i \"${SRCROOT}/main/resources/Environments.plist\" -output-bin \"${SRCROOT}/main/resources/generated/Environments.bin\" -output-file \"${SRCROOT}/main/resources/generated/EnvironmentGenerated.swift\" -validate-environment ${SDOSEnvironment}\n";
+			shellScript = "sh \"$SRCROOT/scripts/SDOSEnvironment.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -381,12 +399,15 @@
 				902E89682315CE490021E21D /* MovieDetailPresenter.swift in Sources */,
 				902E895B2315A97E0021E21D /* MovieCell.swift in Sources */,
 				901DCF0723148073004B645D /* MovieDetailController.swift in Sources */,
-				F586C7C324F28204001C48EC /* EnvironmentGenerated.swift in Sources */,
 				901DCF09231480BE004B645D /* ApiManager.swift in Sources */,
+				F586C7CE24F42833001C48EC /* RootViewService.swift in Sources */,
+				F586C7C724F28CBE001C48EC /* SceneDelegate.swift in Sources */,
 				901DCF0B23148A55004B645D /* MovieDto.swift in Sources */,
 				901DCEEC2314783C004B645D /* AppDelegate.swift in Sources */,
+				F586C7C524F28A9D001C48EC /* EnvironmentService.swift in Sources */,
 				902E89662315CE3C0021E21D /* MovieDetailModel.swift in Sources */,
 				902E89622315B85F0021E21D /* MoviesModel.swift in Sources */,
+				F586C7C924F29FCA001C48EC /* Environment.generated.swift in Sources */,
 				901DCF0D23148A62004B645D /* MovieDetailDto.swift in Sources */,
 				902E895E2315B2170021E21D /* Utilities.swift in Sources */,
 				901DCF1123148B46004B645D /* SearchDto.swift in Sources */,
@@ -458,10 +479,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -472,6 +490,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -518,6 +538,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -527,6 +548,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -539,13 +562,13 @@
 			baseConfigurationReference = 7CAF3428ABD7E8253D19D4C4 /* Pods-MyMovies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Dev";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/main/configuration/Info.plist";
+				CODE_SIGN_STYLE = Manual;
+				INFOPLIST_FILE = main/configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.antoniofm.MyMovie.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antoniofm.MyMovies.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -557,13 +580,13 @@
 			baseConfigurationReference = 1B478C7E080C86C1B3140C1A /* Pods-MyMovies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Test";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/main/configuration/Info.plist";
+				CODE_SIGN_STYLE = Manual;
+				INFOPLIST_FILE = main/configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.antoniofm.MyMovie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antoniofm.MyMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -610,6 +633,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -619,6 +643,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -631,13 +657,13 @@
 			baseConfigurationReference = CC947DA4799174700C64D70F /* Pods-MyMovies.production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/main/configuration/Info.plist";
+				CODE_SIGN_STYLE = Manual;
+				INFOPLIST_FILE = main/configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.antoniofm.MyMovie.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antoniofm.MyMovies.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -655,7 +681,7 @@
 				F516457D24E9B41E005D3DB7 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Production;
 		};
 		901DCEFA2314783C004B645D /* Build configuration list for PBXNativeTarget "MyMovies" */ = {
 			isa = XCConfigurationList;
@@ -665,7 +691,7 @@
 				F516457E24E9B41E005D3DB7 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Production;
 		};
 /* End XCConfigurationList section */
 	};

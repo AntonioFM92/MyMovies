@@ -9,5 +9,9 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+#include "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = com.antoniofm.MyMovies.test
+
 SDOSEnvironment = Release
-EncryptPassword = MyMoviesPass
+EncryptPassword = MyMovies

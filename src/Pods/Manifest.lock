@@ -7,27 +7,42 @@ PODS:
     - SDOSEnvironment/SDOSEnvironment (= 1.1.1)
   - SDOSEnvironment/SDOSEnvironment (1.1.1):
     - RNCryptor (~> 5.0)
+  - SDOSPluggableApplicationDelegate/Core (2.0.1)
+  - SDOSPluggableApplicationDelegate/Scene (2.0.1):
+    - SDOSPluggableApplicationDelegate/Core
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - ObjectMapper (~> 3.5)
-  - SDOSEnvironment
+  - SDOSEnvironment (from `https://github.com/ajpallares/SDOSEnvironment.git`, commit `5db571f64b3573ab7716fd57c082e3d328ff1d42`)
+  - SDOSPluggableApplicationDelegate/Scene
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - RNCryptor
   https://github.com/SDOSLabs/cocoapods-specs.git:
-    - SDOSEnvironment
+    - SDOSPluggableApplicationDelegate
   trunk:
     - Alamofire
     - ObjectMapper
+
+EXTERNAL SOURCES:
+  SDOSEnvironment:
+    :commit: 5db571f64b3573ab7716fd57c082e3d328ff1d42
+    :git: https://github.com/ajpallares/SDOSEnvironment.git
+
+CHECKOUT OPTIONS:
+  SDOSEnvironment:
+    :commit: 5db571f64b3573ab7716fd57c082e3d328ff1d42
+    :git: https://github.com/ajpallares/SDOSEnvironment.git
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
-  SDOSEnvironment: defac796858a1e4353274adc5ebe9a2f9dbb309f
+  SDOSEnvironment: 6f9473f5ec8a3ebcdaaccc1c3710c930f93ff9ec
+  SDOSPluggableApplicationDelegate: 769b1a28d29aaadcb7cdfe735a8947efe9196922
 
-PODFILE CHECKSUM: f98690e14b234f13c39e006678edb4a83c8aa115
+PODFILE CHECKSUM: b72931aded8c5d20b0b8880581043f518c40a7e5
 
 COCOAPODS: 1.9.1

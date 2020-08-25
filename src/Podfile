@@ -10,6 +10,11 @@ target 'MyMovies' do
   # Pods for MyMovies
   pod 'Alamofire', '~> 5.2'
   pod 'ObjectMapper', '~> 3.5'
-  pod 'SDOSEnvironment'
+
+  #Code environments variables
+  pod 'SDOSEnvironment', :git => 'https://github.com/ajpallares/SDOSEnvironment.git', :commit => '5db571f64b3573ab7716fd57c082e3d328ff1d42'
+
+  #Services
+  pod 'SDOSPluggableApplicationDelegate/Scene'
 
 end
