@@ -17,4 +17,8 @@ target 'MyMovies' do
   #Services
   pod 'SDOSPluggableApplicationDelegate/Scene'
 
+  #Animations and loaders
+    pod 'SDOSHero'
+    pod 'SDOSLoader'
+    
 end

@@ -1,27 +1,65 @@
 PODS:
   - Alamofire (5.2.2)
+  - DGActivityIndicatorView (2.1.1)
+  - Hero (1.5.0)
+  - M13ProgressSuite (1.2.9)
+  - MBProgressHUD (1.2.0)
   - ObjectMapper (3.5.3)
   - RNCryptor (5.1.0)
+  - SDOSCustomLoader (1.0.1):
+    - SDOSCustomLoader/CustomLoader (= 1.0.1)
+  - SDOSCustomLoader/CustomLoader (1.0.1)
   - SDOSEnvironment (1.1.1):
     - RNCryptor (~> 5.0)
     - SDOSEnvironment/SDOSEnvironment (= 1.1.1)
   - SDOSEnvironment/SDOSEnvironment (1.1.1):
     - RNCryptor (~> 5.0)
+  - SDOSHero (3.0.0):
+    - Hero (~> 1.4)
+    - SDOSHero/Hero (= 3.0.0)
+  - SDOSHero/Hero (3.0.0):
+    - Hero (~> 1.4)
+  - SDOSLoader (3.0.2):
+    - DGActivityIndicatorView (~> 2.1)
+    - M13ProgressSuite (~> 1.2)
+    - MBProgressHUD (~> 1.1)
+    - SDOSCustomLoader
+    - SDOSLoader/Loader (= 3.0.2)
+    - SDOSSwiftExtension
+  - SDOSLoader/Loader (3.0.2):
+    - DGActivityIndicatorView (~> 2.1)
+    - M13ProgressSuite (~> 1.2)
+    - MBProgressHUD (~> 1.1)
+    - SDOSCustomLoader
+    - SDOSSwiftExtension
   - SDOSPluggableApplicationDelegate/Core (2.0.1)
   - SDOSPluggableApplicationDelegate/Scene (2.0.1):
     - SDOSPluggableApplicationDelegate/Core
+  - SDOSSwiftExtension (1.0.2):
+    - SDOSSwiftExtension/SwiftExtension (= 1.0.2)
+  - SDOSSwiftExtension/SwiftExtension (1.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - ObjectMapper (~> 3.5)
   - SDOSEnvironment (from `https://github.com/ajpallares/SDOSEnvironment.git`, commit `5db571f64b3573ab7716fd57c082e3d328ff1d42`)
+  - SDOSHero
+  - SDOSLoader
   - SDOSPluggableApplicationDelegate/Scene
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - DGActivityIndicatorView
+    - Hero
+    - M13ProgressSuite
+    - MBProgressHUD
     - RNCryptor
   https://github.com/SDOSLabs/cocoapods-specs.git:
+    - SDOSCustomLoader
+    - SDOSHero
+    - SDOSLoader
     - SDOSPluggableApplicationDelegate
+    - SDOSSwiftExtension
   trunk:
     - Alamofire
     - ObjectMapper
@@ -38,11 +76,19 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
+  SDOSCustomLoader: 299ba8e5b06479f6dd562560ae4e359f115c5f0c
   SDOSEnvironment: 6f9473f5ec8a3ebcdaaccc1c3710c930f93ff9ec
+  SDOSHero: 827da1d0e01dfd58938537cc8f0e9cfa47b1c276
+  SDOSLoader: 48e052b9073327a04ccf2cfc07bd3ea128de5978
   SDOSPluggableApplicationDelegate: 769b1a28d29aaadcb7cdfe735a8947efe9196922
+  SDOSSwiftExtension: 6f9bd03dd6c1a6a70b5f60cd7cc470790aee3625
 
-PODFILE CHECKSUM: b72931aded8c5d20b0b8880581043f518c40a7e5
+PODFILE CHECKSUM: 896eaca4eba09237886700e6b36162d1d85d4b9f
 
 COCOAPODS: 1.9.1

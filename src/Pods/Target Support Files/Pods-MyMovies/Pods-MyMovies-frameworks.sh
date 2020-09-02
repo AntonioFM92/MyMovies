@@ -198,24 +198,48 @@ fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Hero/Hero.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/M13ProgressSuite/M13ProgressSuite.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSCustomLoader/SDOSCustomLoader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDOSEnvironment/SDOSEnvironment.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSHero/SDOSHero.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSLoader/SDOSLoader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDOSPluggableApplicationDelegate/SDOSPluggableApplicationDelegate.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSSwiftExtension/SDOSSwiftExtension.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Hero/Hero.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/M13ProgressSuite/M13ProgressSuite.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSCustomLoader/SDOSCustomLoader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDOSEnvironment/SDOSEnvironment.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSHero/SDOSHero.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSLoader/SDOSLoader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDOSPluggableApplicationDelegate/SDOSPluggableApplicationDelegate.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSSwiftExtension/SDOSSwiftExtension.framework"
 fi
 if [[ "$CONFIGURATION" == "Production" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Hero/Hero.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/M13ProgressSuite/M13ProgressSuite.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSCustomLoader/SDOSCustomLoader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDOSEnvironment/SDOSEnvironment.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSHero/SDOSHero.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSLoader/SDOSLoader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDOSPluggableApplicationDelegate/SDOSPluggableApplicationDelegate.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDOSSwiftExtension/SDOSSwiftExtension.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
