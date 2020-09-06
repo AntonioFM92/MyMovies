@@ -39,6 +39,10 @@ class MovieDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let play = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(playTapped))
+        
+        navigationItem.rightBarButtonItems = [play]
+        
         presenter = MovieDetailPresenter(ui: self)
         presenter?.showLoadingView()
         presenter?.getMovieDetail(parameters: Utilities.getParametersSearchMovieDetail(movieID: imdbID), body: [:])
@@ -48,6 +52,10 @@ class MovieDetailController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapped(_:)))
         movieImage.addGestureRecognizer(tapGesture)
         
+    }
+    
+    @objc func playTapped() {
+        print("Add to favourites")
     }
     
     //Gesture to show image full screen
@@ -107,6 +115,8 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         guard let movieDetail = movieDetail else {
             return
         }
+        self.movieDetailDto = movieDetail
+        
         presenter!.removeLoadingView()
         presenter!.initMovieDetail(movieTitle: movieDetail.title ?? "", movieImage: movieDetail.poster ?? "", movieDate: movieDetail.released ?? "", movieDuration: movieDetail.runtime ?? "", movieGenre: movieDetail.genre ?? "", movieWebsite: movieDetail.website ?? "", moviePlot: movieDetail.plot ?? "")
     }

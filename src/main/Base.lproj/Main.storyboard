@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie Controller-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="movieController" id="BYZ-38-t0r" customClass="MovieController" customModule="MyMovie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="movieController" id="BYZ-38-t0r" customClass="MovieController" customModule="MyMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2q1-FZ-OZl"/>
                         <viewControllerLayoutGuide type="bottom" id="pRa-VY-QsC"/>
@@ -36,7 +36,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="343"/>
                                         <color key="backgroundColor" red="0.37355522260000001" green="0.77201947770000001" blue="0.93642979449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="130" id="3KH-8f-USb" customClass="MovieCell" customModule="MyMovie" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="130" id="3KH-8f-USb" customClass="MovieCell" customModule="MyMovies" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="320" height="130"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3KH-8f-USb" id="KeE-Qd-o5f">
@@ -116,7 +116,7 @@
                             <constraint firstItem="QWb-KJ-ktJ" firstAttribute="top" secondItem="2q1-FZ-OZl" secondAttribute="bottom" id="qvN-Yr-h0T"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="h4K-i8-K0k"/>
+                    <navigationItem key="navigationItem" title="Title" id="VN9-vw-von"/>
                     <connections>
                         <outlet property="contentView" destination="eOD-sY-FVi" id="S4J-vv-NC5"/>
                         <outlet property="movieTableView" destination="2d1-aD-XfB" id="msD-73-o68"/>
@@ -131,7 +131,7 @@
         <!--Movie Detail Controller-->
         <scene sceneID="NuU-PO-kX8">
             <objects>
-                <viewController storyboardIdentifier="movieDetailController" id="h7q-U9-Be9" customClass="MovieDetailController" customModule="MyMovie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="movieDetailController" id="h7q-U9-Be9" customClass="MovieDetailController" customModule="MyMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8S9-Ab-9wE"/>
                         <viewControllerLayoutGuide type="bottom" id="zRx-jx-XYq"/>
@@ -274,7 +274,7 @@
                 <navigationController id="Xxk-Te-0Gd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="ONt-FK-1wb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bU-HY-ylk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -291,6 +291,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Anl-Vd-Wql" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3C8-NC-EAa">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
