@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct MovieDetailDto : Mappable {
+struct MovieDetailDto : Mappable, Decodable {
     
     var title: String?
     var year: String?
@@ -25,7 +25,7 @@ struct MovieDetailDto : Mappable {
     var country: String?
     var awards: String?
     var poster: String?
-    var ratings: [RatingDto]?
+    //var ratings: [RatingDto]?
     var metascore: String?
     var imdbRating: String?
     var imdbVotes: String?
@@ -56,7 +56,7 @@ struct MovieDetailDto : Mappable {
         country <- map["Country"]
         awards <- map["Awards"]
         poster <- map["Poster"]
-        ratings <- map["Ratings"]
+        //ratings <- map["Ratings"]
         metascore <- map["Metascore"]
         imdbRating <- map["imdbRating"]
         imdbVotes <- map["imdbVotes"]
@@ -69,4 +69,30 @@ struct MovieDetailDto : Mappable {
         response <- map["Response"]
     }
     
+    init(from movieEntity: MovieEntity) {
+        self.title = movieEntity.title
+        self.year = movieEntity.year
+        self.rated = movieEntity.rated
+        self.released = movieEntity.released
+        self.runtime = movieEntity.runtime
+        self.genre = movieEntity.genre
+        self.director = movieEntity.director
+        self.writer = movieEntity.writer
+        self.actors = movieEntity.actors
+        self.plot = movieEntity.plot
+        self.language = movieEntity.language
+        self.country = movieEntity.country
+        self.awards = movieEntity.awards
+        self.poster = movieEntity.poster
+        self.metascore = movieEntity.metascore
+        self.imdbRating = movieEntity.imdbRating
+        self.imdbVotes = movieEntity.imdbVotes
+        self.imdbID = movieEntity.imdbID
+        self.type = movieEntity.type
+        self.dVD = movieEntity.dVD
+        self.boxOffice = movieEntity.boxOffice
+        self.production = movieEntity.production
+        self.website = movieEntity.website
+        self.response = movieEntity.response
+    }
 }

@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import CoreData
+
+enum FavState {
+    case isFavourite
+    case notFavourite
+}
 
 protocol MovieDetailControllerDelegate {
     
@@ -29,12 +35,18 @@ class MovieDetailController: UIViewController {
     @IBOutlet var movieGenre: UILabel!
     @IBOutlet var movieWebSite: UITextView!
     @IBOutlet var moviePlot: UITextView!
+    @IBOutlet weak var favButton: UIButton!
     
     var movieDetailDto: MovieDetailDto?
     private var presenter: MovieDetailPresenterDelegate?
     var imdbID: String = ""
     
     var originalFrame: CGRect?
+    
+    var isFavourite: FavState!
+    
+    //Setup favourite button image
+    let context = StorageService.shared.persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +64,21 @@ class MovieDetailController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapped(_:)))
         movieImage.addGestureRecognizer(tapGesture)
         
+        movieWebSite.delegate = self
+        moviePlot.delegate = self
     }
     
     @objc func playTapped() {
         print("Add to favourites")
+    }
+    
+    @IBAction func toFavourites(_ sender: Any) {
+        print("Add to favourites")
+        if self.isFavourite == .isFavourite {
+            removeFromFavourites()
+        } else {
+            addToFavourites()
+        }
     }
     
     //Gesture to show image full screen
@@ -119,6 +142,32 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         
         presenter!.removeLoadingView()
         presenter!.initMovieDetail(movieTitle: movieDetail.title ?? "", movieImage: movieDetail.poster ?? "", movieDate: movieDetail.released ?? "", movieDuration: movieDetail.runtime ?? "", movieGenre: movieDetail.genre ?? "", movieWebsite: movieDetail.website ?? "", moviePlot: movieDetail.plot ?? "")
+        
+        
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MovieEntity")
+        guard let imdbID = movieDetailDto?.imdbID else {
+            updateFavouriteUI(for: .notFavourite)
+            return
+        }
+        let namePredicate = NSPredicate(format: "imdbID == %@", imdbID)
+        let isFavPredicate = NSPredicate(format: "isFavourite == %@", NSNumber(booleanLiteral: true))
+        let compundPredicate = NSCompoundPredicate(type: .and, subpredicates: [namePredicate, isFavPredicate])
+        fetchRequest.predicate = compundPredicate
+        
+        do {
+            let count = try context.count(for: fetchRequest)
+            if count == 1 {
+                updateFavouriteUI(for: .isFavourite)
+                self.isFavourite = .isFavourite
+            } else {
+                self.isFavourite = .notFavourite
+            }
+        } catch let error {
+            print(error)
+        }
+        
+        updateFavouriteUI(for: self.isFavourite)
     }
     
     func failed(error: String) {
@@ -127,4 +176,90 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         present(alert, animated: true)
     }
     
+}
+
+extension MovieDetailController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        view.layoutIfNeeded()
+    }
+}
+
+extension MovieDetailController {
+    
+    func addToFavourites() {
+        
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieEntity")
+        guard let imdbID = movieDetailDto?.imdbID else {
+            return
+        }
+        fetchRequest.predicate = NSPredicate(format: "imdbID == %@", imdbID)
+        fetchRequest.fetchLimit = 1 // Redundant
+        
+        do {
+            let count = try context.count(for: fetchRequest)
+            if count == 1 {
+                let record = try context.fetch(fetchRequest)
+                record.first?.setValue(NSNumber(booleanLiteral: true), forKey: "isFavourite")
+                
+                StorageService.shared.saveContext()
+                
+                self.isFavourite = .isFavourite
+                updateFavouriteUI(for: .isFavourite)
+            } else {
+                let entity = NSEntityDescription.entity(forEntityName: "MovieEntity", in: context)!
+                let stationRecord = NSManagedObject(entity: entity, insertInto: context)
+                
+                stationRecord.setValue(self.movieDetailDto?.title, forKey: "title")
+                stationRecord.setValue(self.movieDetailDto?.poster, forKey: "poster")
+                stationRecord.setValue(self.movieDetailDto?.released, forKey: "released")
+                stationRecord.setValue(self.movieDetailDto?.runtime, forKey: "runtime")
+                stationRecord.setValue(self.movieDetailDto?.genre, forKey: "genre")
+                stationRecord.setValue(self.movieDetailDto?.website, forKey: "website")
+                stationRecord.setValue(self.movieDetailDto?.plot, forKey: "plot")
+                stationRecord.setValue(self.movieDetailDto?.imdbID, forKey: "imdbID")
+                stationRecord.setValue(true, forKey: "isFavourite")
+                
+                StorageService.shared.saveContext()
+                updateFavouriteUI(for: .isFavourite)
+                
+                self.isFavourite = .isFavourite
+            }
+            
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func removeFromFavourites() {
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieEntity")
+        guard let imdbID = movieDetailDto?.imdbID else {
+            updateFavouriteUI(for: .notFavourite)
+            return
+        }
+        fetchRequest.predicate = NSPredicate(format: "imdbID == %@", imdbID)
+        fetchRequest.fetchLimit = 1 // Redundant
+        
+        do {
+            let record = try context.fetch(fetchRequest)
+            record.first?.setValue(NSNumber(booleanLiteral: false), forKey: "isFavourite")
+            
+            StorageService.shared.saveContext()
+            
+            self.isFavourite = .notFavourite
+            updateFavouriteUI(for: .notFavourite)
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func updateFavouriteUI(for state: FavState) {
+        switch state {
+        case .isFavourite:
+            favButton.setBackgroundImage(UIImage(named: "remove-favourite"), for: .normal)
+        default:
+            favButton.setBackgroundImage(UIImage(named: "add-favorite"), for: .normal)
+        }
+    }
 }

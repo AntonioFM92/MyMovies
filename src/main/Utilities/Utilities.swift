@@ -102,10 +102,12 @@ extension UITextView {
     }
     
     @objc func tapped(_ sender: UITapGestureRecognizer? = nil) {
-        let urlToOpen = URL(string: self.text)!
-        
-        let activityViewController = UIActivityViewController(activityItems: [urlToOpen], applicationActivities: nil)
-        self.parentViewController!.present(activityViewController, animated: true)
+        if !self.text.isEmpty {
+            let urlToOpen = URL(string: self.text)!
+            
+            let activityViewController = UIActivityViewController(activityItems: [urlToOpen], applicationActivities: nil)
+            self.parentViewController!.present(activityViewController, animated: true)
+        }
     }
     
 }

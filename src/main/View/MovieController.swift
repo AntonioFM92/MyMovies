@@ -37,6 +37,7 @@ class MovieController: UIViewController {
         movieTableView.sectionFooterHeight = 0.0
         movieTableView.tableFooterView = UIView(frame:CGRect.zero)
         
+        self.view.backgroundColor = .lightGray
     }
     
 }

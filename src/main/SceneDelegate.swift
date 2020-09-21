@@ -18,7 +18,8 @@ class SceneDelegate: PluggableSceneDelegate {
     
     override var sceneServices: [SceneService] {
         return [
-            RootViewService.shared
+            RootViewService.shared,
+            StorageService.shared
         ]
     }
 }

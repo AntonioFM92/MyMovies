@@ -19,7 +19,8 @@ class AppDelegate: PluggableApplicationDelegate {
     override var applicationServices: [ApplicationService] {
         return [
             EnvironmentService.shared,
-            RootViewService.shared
+            RootViewService.shared,
+            StorageService.shared
         ]
     }
 }
