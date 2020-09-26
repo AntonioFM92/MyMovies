@@ -51,18 +51,4 @@ final class EnvironmentService: NSObject, ApplicationService {
         }
         return nil
     }
-//    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//        guard let encryptPassword = getEncryptPassword() else {
-//            return false
-//        }
-//        SDOSEnvironment.configure(password: encryptPassword, activeLogging: true)
-//        return true
-//    }
-//
-//    private func getEncryptPassword() -> String? {
-//        if let encryptPassword = Bundle(for: EnvironmentService.self).object(forInfoDictionaryKey: "EncryptPassword") as? String {
-//            return encryptPassword
-//        }
-//        return nil
-//    }
 }

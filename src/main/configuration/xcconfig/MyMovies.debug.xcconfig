@@ -15,3 +15,5 @@ PRODUCT_BUNDLE_IDENTIFIER = com.antoniofm.MyMovies.dev
 
 SDOSEnvironment = Debug
 EncryptPassword = MyMovies
+
+APP_ICON_ASSETS = AppIcon-Dev

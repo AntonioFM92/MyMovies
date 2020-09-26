@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Firebase
+import SDOSLoader
 
 enum FavState {
     case isFavourite
@@ -69,11 +71,12 @@ class MovieDetailController: UIViewController {
     }
     
     @objc func playTapped() {
-        print("Add to favourites")
+        Database.database().reference().child("pelis/\(imdbID)/title").setValue(movieDetailDto?.title)
+        Database.database().reference().child("pelis/\(imdbID)/year").setValue(movieDetailDto?.year)
+        Database.database().reference().child("pelis/\(imdbID)/poster").setValue(movieDetailDto?.poster)
     }
     
     @IBAction func toFavourites(_ sender: Any) {
-        print("Add to favourites")
         if self.isFavourite == .isFavourite {
             removeFromFavourites()
         } else {
@@ -122,16 +125,21 @@ extension MovieDetailController: MovieDetailControllerDelegate {
         guard let movieImageURL = URL(string: Utilities.checkImageUrl(imageURL: movieImage)) else {
             return
         }
-        self.movieImage.load(url: movieImageURL)
+        self.movieImage.sd_setImage(with: movieImageURL, placeholderImage: UIImage(named: "noposter"))
         self.movieImage.setSaveGesture()
     }
     
     func showLoadingView(){
-        showProgress(onView: self.view)
+        LoaderManager.showLoader(LoaderManager.loader(loaderType: .indeterminateCircular(.none), inView: self.view, size: CGSize(width: 50, height: 50)))
     }
     
     func removeLoadingView(){
-        removeProgress()
+        DispatchQueue.main.async(execute: { [weak self] in
+            guard let self = self else { return }
+            do {
+                LoaderManager.hideLoaderOfView(self.view)
+            }
+        })
     }
     
     func successSearch(movieDetail: MovieDetailDto?) {

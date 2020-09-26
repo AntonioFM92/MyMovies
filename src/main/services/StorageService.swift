@@ -33,9 +33,6 @@ final class StorageService: NSObject, ApplicationService, SceneService {
     
     private override init() { }
     
-    //MARK: - Private methods
-    
-
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -46,5 +43,7 @@ final class StorageService: NSObject, ApplicationService, SceneService {
             }
         }
     }
+    
+    //MARK: - Private methods
     
 }

@@ -47,16 +47,20 @@ class FavouritesController: UIViewController {
     
 }
 
-
-//MARK: - DelegateClass
+//MARK: - FavouritesControllerDelegate
 extension FavouritesController: FavouritesControllerDelegate {
     
     func showLoadingView(){
-        showProgress(onView: self.view)
+        LoaderManager.showLoader(LoaderManager.loader(loaderType: .indeterminateCircular(.none), inView: self.view, size: CGSize(width: 50, height: 50)))
     }
     
     func removeLoadingView(){
-        removeProgress()
+        DispatchQueue.main.async(execute: { [weak self] in
+            guard let self = self else { return }
+            do {
+                LoaderManager.hideLoaderOfView(self.view)
+            }
+        })
     }
     
     func success(movies: [MovieEntity]?) {
@@ -81,7 +85,7 @@ extension FavouritesController: FavouritesControllerDelegate {
 extension FavouritesController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return MovieCell.heightCell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

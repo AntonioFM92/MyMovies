@@ -11,15 +11,12 @@ import UIKit
 
 class Utilities {
     
-    static var urlBase = "http://www.omdbapi.com/"
-    static var apiKey = "d2588d29"
-    
     static func getParametersSearchMovie(movieTitle: String) -> [String:String]{
-        return ["s":movieTitle, "apikey": apiKey]
+        return ["s":movieTitle, "apikey": Environment.apiKey]
     }
     
     static func getParametersSearchMovieDetail(movieID: String) -> [String:String]{
-        return ["i":movieID, "apikey": apiKey]
+        return ["i":movieID, "apikey": Environment.apiKey]
     }
     
     //Load movieImage or image by default
@@ -28,6 +25,16 @@ class Utilities {
         return urlString
     }
     
+    static func showAlert(vc: UIViewController) {
+        let refreshAlert = UIAlertController(title: "Info", message: "Ocurrió un error durante la carga de la película.", preferredStyle: UIAlertController.Style.alert)
+
+//        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+//              print("Handle Cancel Logic here")
+//        }))
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        
+        vc.present(refreshAlert, animated: true, completion: nil)
+    }
 }
 
 
@@ -143,4 +150,3 @@ extension UIViewController {
     }
     
 }
-

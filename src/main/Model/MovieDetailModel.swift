@@ -27,7 +27,7 @@ class MovieDetailModel: MovieDetailModelDelegate {
     }
     
     func getMovieDetail(parameters: [String: String], body: [String : String], callBacks: @escaping MovieDetailModelDelegate.callbacks) {
-        apiManager.get(url: Utilities.urlBase, parameters: parameters, apiCallback:{(isSuccessful, JSON, error) in
+        apiManager.get(url: Environment.baseUrl, parameters: parameters, apiCallback:{(isSuccessful, JSON, error) in
             if isSuccessful{
                 if let movieDetailJSONResponse = Mapper<MovieDetailDto>().map(JSONObject: JSON){
                     callBacks(true, movieDetailJSONResponse, nil)

@@ -10,15 +10,16 @@ import UIKit
 
 class ThirdPartyLibrariesTableViewController: UITableViewController {
 
-    let nameLibraries = ["SDOSLoader", "SDOSEnvironment", "SDOSPluggableApplicationDelegate"]
-    let libraries = ["https://github.com/SDOSLabs/SDOSLoader", "https://github.com/SDOSLabs/SDOSEnvironment", "https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate"]
-    //let libraries = ["SDOSLoader" : "https://github.com/SDOSLabs/SDOSLoader", "SDOSEnvironment" :"https://github.com/SDOSLabs/SDOSEnvironment", "SDOSPluggableApplicationDelegate" :"https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate"]
+    let nameLibraries = ["SDOSLoader", "SDOSEnvironment", "SDOSPluggableApplicationDelegate", "SDWebImage"]
+    let libraries = ["https://github.com/SDOSLabs/SDOSLoader", "https://github.com/SDOSLabs/SDOSEnvironment", "https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate", "https://github.com/SDWebImage/SDWebImage"]
     
     @IBOutlet var librariesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        librariesTableView.sectionFooterHeight = 0.0
+        librariesTableView.tableFooterView = UIView(frame:CGRect.zero)
         librariesTableView.delegate = self
         librariesTableView.dataSource = self
     }
@@ -47,5 +48,25 @@ class ThirdPartyLibrariesTableViewController: UITableViewController {
             UIApplication.shared.open(url)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeader = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
 
+        let sectionText = UILabel()
+        sectionText.frame = CGRect.init(x: 15, y: 15, width: sectionHeader.frame.width-30, height: sectionHeader.frame.height-30)
+        sectionText.text = NSLocalizedString("infoApp", comment: "")
+        sectionText.textAlignment = .left
+        sectionText.numberOfLines = 4
+        sectionText.font = .systemFont(ofSize: 14, weight: .bold)
+        sectionText.textColor = .black
+        
+        sectionHeader.addSubview(sectionText)
+        
+        return sectionHeader
+    }
+    
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
 }

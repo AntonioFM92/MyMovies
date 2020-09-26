@@ -20,7 +20,8 @@ class AppDelegate: PluggableApplicationDelegate {
         return [
             EnvironmentService.shared,
             RootViewService.shared,
-            StorageService.shared
+            StorageService.shared,
+            FirebaseService.shared
         ]
     }
 }

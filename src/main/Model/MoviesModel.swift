@@ -27,7 +27,7 @@ class MoviesModel: MoviesModelDelegate {
     }
     
     func getMovies(parameters: [String: String], body: [String : String], callBacks: @escaping MoviesModelDelegate.callbacks) {
-        apiManager.get(url: Utilities.urlBase, parameters: parameters, apiCallback:{(isSuccessful, JSON, error) in
+        apiManager.get(url: Environment.baseUrl, parameters: parameters, apiCallback:{(isSuccessful, JSON, error) in
             if isSuccessful{
                 if let moviesJSONResponse = Mapper<MovieDto>().map(JSONObject: JSON){
                     callBacks(true, moviesJSONResponse, nil)

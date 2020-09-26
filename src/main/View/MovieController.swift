@@ -47,11 +47,16 @@ class MovieController: UIViewController {
 extension MovieController: MovieControllerDelegate {
     
     func showLoadingView(){
-        showProgress(onView: self.contentView)
+        LoaderManager.showLoader(LoaderManager.loader(loaderType: .indeterminateCircular(.none), inView: self.view, size: CGSize(width: 50, height: 50)))
     }
     
     func removeLoadingView(){
-        removeProgress()
+        DispatchQueue.main.async(execute: { [weak self] in
+            guard let self = self else { return }
+            do {
+                LoaderManager.hideLoaderOfView(self.view)
+            }
+        })
     }
     
     func successSearch(movies: MovieDto?) {
@@ -100,7 +105,7 @@ extension MovieController: UISearchBarDelegate {
 extension MovieController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return MovieCell.heightCell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
