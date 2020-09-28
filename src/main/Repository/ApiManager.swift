@@ -28,12 +28,12 @@ class ApiManager {
                     apiCallback(true,data,"")
                     break
                 default:
-                    apiCallback(false,nil,"Error en la petición")
+                    apiCallback(false,nil, NSLocalizedString("networkError2", comment: ""))
                     break
                 }
                 
             case .failure( _) :
-                apiCallback(false,nil,"Ocurrió un error. Compruebe su conexión a Internet.")
+                apiCallback(false,nil, NSLocalizedString("networkError", comment: ""))
                 break
                 
             }

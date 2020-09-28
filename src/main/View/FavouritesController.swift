@@ -75,7 +75,7 @@ extension FavouritesController: FavouritesControllerDelegate {
     
     func failed(error: String) {
         let alert = UIAlertController(title: error, message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default, handler: nil))
         present(alert, animated: true)
     }
 }

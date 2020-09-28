@@ -26,14 +26,48 @@ class Utilities {
     }
     
     static func showAlert(vc: UIViewController) {
-        let refreshAlert = UIAlertController(title: "Info", message: "Ocurrió un error durante la carga de la película.", preferredStyle: UIAlertController.Style.alert)
-
-//        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
-//              print("Handle Cancel Logic here")
-//        }))
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        let refreshAlert = UIAlertController(title: NSLocalizedString("Info", comment: ""), message: NSLocalizedString("errorLoading", comment: ""), preferredStyle: UIAlertController.Style.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .cancel, handler: nil))
         
         vc.present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    
+    
+    func topViewController()-> UIViewController{
+        var topViewController:UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+
+        while ((topViewController.presentedViewController) != nil) {
+            topViewController = topViewController.presentedViewController!;
+        }
+
+        return topViewController
+    }
+    
+    func showShareActivity(msg:String?, image:UIImage?, url:String?, sourceRect:CGRect?){
+        var objectsToShare = [AnyObject]()
+
+        if let url = url {
+            objectsToShare = [url as AnyObject]
+        }
+
+        if let image = image {
+            objectsToShare = [image as AnyObject]
+        }
+
+        if let msg = msg {
+            objectsToShare = [msg as AnyObject]
+        }
+
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityVC.modalPresentationStyle = .popover
+        activityVC.popoverPresentationController?.sourceView = topViewController().view
+        if let sourceRect = sourceRect {
+            activityVC.popoverPresentationController?.sourceRect = sourceRect
+        }
+
+        topViewController().present(activityVC, animated: true, completion: nil)
     }
 }
 
@@ -71,11 +105,11 @@ extension UIImageView {
     
     @objc func longPressed(_ sender: UILongPressGestureRecognizer? = nil) {
         
-        let alert = UIAlertController(title: "¿Desea guardar la imagen?", message: "Se guardará automáticamente en el carrete.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: {
+        let alert = UIAlertController(title: NSLocalizedString("saveImage", comment: ""), message: NSLocalizedString("saveMessage", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default, handler: {
             action in UIImageWriteToSavedPhotosAlbum(self.image!, nil, nil, nil)
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("no", comment: ""), style: .cancel, handler: nil))
         
         self.parentViewController!.present(alert, animated: true)
         

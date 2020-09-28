@@ -53,7 +53,7 @@ class MovieDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let play = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(playTapped))
+        let play = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         
         navigationItem.rightBarButtonItems = [play]
         
@@ -70,10 +70,20 @@ class MovieDetailController: UIViewController {
         moviePlot.delegate = self
     }
     
-    @objc func playTapped() {
+    @objc func shareTapped() {
+        
         Database.database().reference().child("pelis/\(imdbID)/title").setValue(movieDetailDto?.title)
         Database.database().reference().child("pelis/\(imdbID)/year").setValue(movieDetailDto?.year)
         Database.database().reference().child("pelis/\(imdbID)/poster").setValue(movieDetailDto?.poster)
+        
+        DispatchQueue.main.async(execute: { [weak self] in
+        guard let self = self else { return }
+        do {
+            let activityViewController = UIActivityViewController(activityItems: [self.movieDetailDto?.title ?? "", self.movieDetailDto?.website ?? ""] , applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        })
     }
     
     @IBAction func toFavourites(_ sender: Any) {
@@ -180,7 +190,7 @@ extension MovieDetailController: MovieDetailControllerDelegate {
     
     func failed(error: String) {
         let alert = UIAlertController(title: error, message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default, handler: nil))
         present(alert, animated: true)
     }
     
