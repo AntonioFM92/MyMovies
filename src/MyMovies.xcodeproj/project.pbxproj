@@ -45,7 +45,6 @@
 		F5C04792250976CB0090708C /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C04791250976CB0090708C /* FavouritesController.swift */; };
 		F5CF8B9E2508234800045E9B /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CF8B9C2508234800045E9B /* Movie+CoreDataClass.swift */; };
 		F5CF8BA22508238700045E9B /* Movie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5CF8BA02508238700045E9B /* Movie.xcdatamodeld */; };
-		F5CF8BA42508259800045E9B /* Dirble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CF8BA32508259800045E9B /* Dirble.swift */; };
 		F5CF8BA6250825C600045E9B /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CF8BA5250825C600045E9B /* StorageService.swift */; };
 		F5D6BF54251BEE1200395542 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D6BF53251BEE1200395542 /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
@@ -102,7 +101,6 @@
 		F5C04791250976CB0090708C /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
 		F5CF8B9C2508234800045E9B /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F5CF8BA12508238700045E9B /* Movie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Movie.xcdatamodel; sourceTree = "<group>"; };
-		F5CF8BA32508259800045E9B /* Dirble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dirble.swift; sourceTree = "<group>"; };
 		F5CF8BA5250825C600045E9B /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		F5D6BF53251BEE1200395542 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		F5D6BF56251D5AF700395542 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				F5C0478F2508CBBC0090708C /* Movie+CoreDataProperties.swift */,
-				F5CF8BA32508259800045E9B /* Dirble.swift */,
 				F5CF8B9C2508234800045E9B /* Movie+CoreDataClass.swift */,
 				901DCF0323147FEC004B645D /* Dto */,
 				902E89612315B85F0021E21D /* MoviesModel.swift */,
@@ -475,7 +472,6 @@
 				902E89662315CE3C0021E21D /* MovieDetailModel.swift in Sources */,
 				902E89622315B85F0021E21D /* MoviesModel.swift in Sources */,
 				F5A5425F251975BA00868AE7 /* RecommendedMoviesPresenter.swift in Sources */,
-				F5CF8BA42508259800045E9B /* Dirble.swift in Sources */,
 				F5CF8B9E2508234800045E9B /* Movie+CoreDataClass.swift in Sources */,
 				F5D6BF54251BEE1200395542 /* CustomTabBar.swift in Sources */,
 				F586C7C924F29FCA001C48EC /* Environment.generated.swift in Sources */,
